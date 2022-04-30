@@ -53,14 +53,13 @@ char* encode(int* flexion, int joyX, int joyY, bool joyClick, bool triggerButton
   return stringToEncode;
 }
 
-//legacy decoding
 void decodeData(char* stringToDecode, int* hapticLimits){
   hapticLimits[0] = getArgument(stringToDecode, 'A'); //thumb
   hapticLimits[1] = getArgument(stringToDecode, 'B'); //index
   hapticLimits[2] = getArgument(stringToDecode, 'C'); //middle
   hapticLimits[3] = getArgument(stringToDecode, 'D'); //ring
   hapticLimits[4] = getArgument(stringToDecode, 'E'); //pinky
-  //Serial.println("Haptic: "+ (String)hapticLimits[0] + " " + (String)hapticLimits[1] + " " + (String)hapticLimits[2] + " " + (String)hapticLimits[3] + " " + (String)hapticLimits[4] + " ");
+  // Serial.println("Haptic: "+ (String)hapticLimits[0] + " " + (String)hapticLimits[1] + " " + (String)hapticLimits[2] + " " + (String)hapticLimits[3] + " " + (String)hapticLimits[4] + " ");
 }
 
 int getArgument(char* stringToDecode, char command){

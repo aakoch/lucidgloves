@@ -8,12 +8,15 @@
 
 //This is the configuration file, main structure in _main.ino
 //CONFIGURATION SETTINGS:
-#define COMMUNICATION COMM_SERIAL //Which communication protocol to use
+//Which communication protocol to use
+// #define COMMUNICATION COMM_SERIAL
+#define COMMUNICATION COMM_BTSERIAL 
+
 //serial over USB
-  #define SERIAL_BAUD_RATE 115200
+#define SERIAL_BAUD_RATE 115200
   
 //serial over Bluetooth
-  #define BTSERIAL_DEVICE_NAME "lucidgloves-left"
+#define BTSERIAL_DEVICE_NAME "lucidgloves-right"
 
 //ANALOG INPUT CONFIG
 #define FLIP_POTS  false  //Flip values from potentiometers (for fingers!) if they are backwards
@@ -47,10 +50,10 @@
 
 #define NO_THUMB false //If for some reason you don't want to track the thumb
 
-#define USING_CALIB_PIN false //When PIN_CALIB is shorted (or it's button pushed) it will reset calibration if this is on.
+#define USING_CALIB_PIN true //When PIN_CALIB is shorted (or it's button pushed) it will reset calibration if this is on.
 
-#define USING_FORCE_FEEDBACK false //Force feedback haptics allow you to feel the solid objects you hold
-#define SERVO_SCALING false //dynamic scaling of servo motors
+#define USING_FORCE_FEEDBACK true //Force feedback haptics allow you to feel the solid objects you hold
+#define SERVO_SCALING true //dynamic scaling of servo motors
 
 //PINS CONFIGURATION 
 #if defined(__AVR__)
@@ -68,7 +71,7 @@
   #define PIN_TRIG_BTN  10 //unused if gesture set
   #define PIN_GRAB_BTN  11 //unused if gesture set
   #define PIN_PNCH_BTN  12 //unused if gesture set
-  #define PIN_CALIB     13 //button for recalibration
+  #define PIN_CALIB     13
   #define DEBUG_LED     LED_BUILTIN
   #define PIN_PINKY_MOTOR     2 //used for force feedback
   #define PIN_RING_MOTOR      3 //^

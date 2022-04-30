@@ -18,12 +18,16 @@ class BTSerialCommunication : public ICommunication {
     void start(){
       Serial.begin(115200);
       m_SerialBT.begin(BTSERIAL_DEVICE_NAME);
+      while(!m_SerialBT) {
+        Serial.print(".");
+      }
       Serial.println("The device started, now you can pair it with bluetooth!");
       m_isOpen = true;
     }
 
     void output(char* data){
       m_SerialBT.print(data);
+      Serial.println(data);
     }
 
     bool readData(char* input){

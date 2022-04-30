@@ -1,16 +1,5 @@
 #if USING_FORCE_FEEDBACK
 
-#if defined(ESP32)
-  #include "ESP32Servo.h"
-#else
-  #include "Servo.h"
-#endif
-
-Servo pinkyServo;
-Servo ringServo;
-Servo middleServo;
-Servo indexServo;
-Servo thumbServo;
 
 void setupServoHaptics(){
   pinkyServo.attach(PIN_PINKY_MOTOR);
@@ -43,12 +32,14 @@ void dynScaleLimits(int* hapticLimits, float* scaledLimits){
 
 void writeServoHaptics(int* hapticLimits){
   float scaledLimits[5];
-  scaleLimits(hapticLimits, scaledLimits);
+  Serial.println("hapticLimits: "+ (String)hapticLimits[0] + " " + (String)hapticLimits[1] + " " + (String)hapticLimits[2] + " " + (String)hapticLimits[3] + " " + (String)hapticLimits[4] + " ");
+  dynScaleLimits(hapticLimits, scaledLimits);
   pinkyServo.write(scaledLimits[4]);
   ringServo.write(scaledLimits[3]);
   middleServo.write(scaledLimits[2]);
   indexServo.write(scaledLimits[1]);
   thumbServo.write(scaledLimits[0]);
+  Serial.println("scaledLimits: "+ (String)scaledLimits[0] + " " + (String)scaledLimits[1] + " " + (String)scaledLimits[2] + " " + (String)scaledLimits[3] + " " + (String)scaledLimits[4] + " ");
 }
 
 #endif

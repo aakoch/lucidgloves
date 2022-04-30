@@ -1,7 +1,7 @@
 //Advanced settings, only for the pros XD
 
 #define LOOP_TIME 4 //How much time between data sends (ms), set to 0 for a good time :)
-#define CALIBRATION_LOOPS -1//How many loops should be calibrated. Set to -1 to always be calibrated.
+#define CALIBRATION_LOOPS 100 //How many loops should be calibrated. Set to -1 to always be calibrated.
 
 //Comm defines, no touchy
 #define COMM_SERIAL 0   
@@ -46,5 +46,5 @@
 
 // You must install RunningMedian library to use this feature
 // https://www.arduino.cc/reference/en/libraries/runningmedian/
-#define ENABLE_MEDIAN_FILTER false //use the median of the previous values, helps reduce noise
+#define ENABLE_MEDIAN_FILTER true //use the median of the previous values, helps reduce noise
 #define MEDIAN_SAMPLES 20

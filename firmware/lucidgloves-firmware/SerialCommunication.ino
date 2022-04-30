@@ -14,6 +14,12 @@ class SerialCommunication : public ICommunication {
     void start(){
       //Serial.setTimeout(1000000);
       Serial.begin(SERIAL_BAUD_RATE);
+
+      while(!Serial) {
+        ;
+      }
+
+      Serial.setTimeout(50);
       m_isOpen = true;
     }
 
